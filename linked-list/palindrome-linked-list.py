@@ -1,21 +1,26 @@
+from typing import Optional
+
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-    
+
         midNode = self.findMiddle(head)
         endNode = self.reverseList(midNode)
         cur = head
-        while(endNode):
+        while (endNode):
             if cur.val != endNode.val:
                 return False
             cur = cur.next
             endNode = endNode.next
         return True
-
 
     def findMiddle(self, ptr):
         slow = ptr
@@ -32,5 +37,5 @@ class Solution:
             nextz = cur.next
             cur.next = prev
             prev = cur
-            cur = nextz 
+            cur = nextz
         return prev

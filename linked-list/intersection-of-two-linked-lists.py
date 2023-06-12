@@ -1,8 +1,13 @@
+from typing import Optional
+
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution:
     def getSizeOFListNode(self, head):
@@ -18,19 +23,19 @@ class Solution:
         for i in range(steps):
             cur = cur.next
         return cur
-    
+
     def findIntersect(self, node1, node2):
 
-        while(node1):
-            if(node1 == node2):
+        while (node1):
+            if (node1 == node2):
                 return node1
             node1 = node1.next
             node2 = node2.next
-        return None 
+        return None
 
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         sizeListA = self.getSizeOFListNode(headA)
-        sizeListB = self.getSizeOFListNode(headB) 
+        sizeListB = self.getSizeOFListNode(headB)
         if sizeListA > sizeListB:
             stepNode = self.equalizer(headA, sizeListA-sizeListB)
             return self.findIntersect(stepNode, headB)
